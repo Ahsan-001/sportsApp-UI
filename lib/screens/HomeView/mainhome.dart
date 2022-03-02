@@ -62,8 +62,7 @@ class HomeScreen extends StatelessWidget {
                     "#AchieveTheDream",
                     style: TextStyle(
                       color: kPrimeColor,
-                      fontSize: 22,
-                      // fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                   const SizedBox(

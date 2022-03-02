@@ -7,7 +7,7 @@ import 'package:football_app/OldProject/league_fixtures.dart';
 import 'package:football_app/OldProject/league_teams.dart';
 import 'package:football_app/OldProject/models/match.dart';
 import 'package:football_app/Utils/constants.dart';
-import 'package:football_app/screens/background.dart';
+import 'package:football_app/OldProject/background.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

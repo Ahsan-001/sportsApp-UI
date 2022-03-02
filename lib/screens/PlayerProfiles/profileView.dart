@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:football_app/Controlller/product_controller.dart';
 import 'package:football_app/screens/PlayerProfiles/profileDetail.dart';
 import 'package:get/get.dart';
@@ -16,6 +16,8 @@ class Profiles extends StatelessWidget {
   final controller = Get.put(ProfileController());
   var isFavourite = false;
   final cartController = Get.put(FavController());
+
+  Profiles({Key? key}) : super(key: key);
   @override
   Widget build(
     BuildContext context,
@@ -193,17 +195,6 @@ class Profiles extends StatelessWidget {
                       );
                     }),
               ),
-              // child: Container(
-              //   height: 37,
-              //   width: 37,
-              //   decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(15),
-              //       color: kPrimeColor),
-              //   child: const Icon(
-              //     Icons.favorite_border_outlined,
-              //     color: kLightColor,
-              //   ),
-              // ),
             ],
           ),
         ),

@@ -33,22 +33,34 @@ class Favourites extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: ListView.builder(
-                  itemCount: favController.items.length,
-                  itemBuilder: (context, index) => favController.items.isEmpty
-                      ? FavCard(
-                          // favController.items.values.toList()[index].id,
-                          favController.items.values.toList()[index].image,
-                          favController.items.values.toList()[index].name,
-                          favController.items.values.toList()[index].age,
-                          favController.items.values.toList()[index].flag,
-                          favController.items.values.toList()[index].pos,
-                          favController.items.values.toList()[index].country,
-                          favController.items.values.toList()[index].sportname,
-                        )
-                      : Center(
-                          child: Container(
-                          child: Text('no data'),
-                        ))),
+                shrinkWrap: true,
+                itemCount: favController.items.length,
+                itemBuilder: (context, index) => favController.items.isEmpty
+                    ? FavCard(
+                        // favController.items.values.toList()[index].id,
+                        favController.items.values.toList()[index].image,
+                        favController.items.values.toList()[index].name,
+                        favController.items.values.toList()[index].age,
+                        favController.items.values.toList()[index].flag,
+                        favController.items.values.toList()[index].pos,
+                        favController.items.values.toList()[index].country,
+                        favController.items.values.toList()[index].sportname,
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 200),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/images/emptybox.png"),
+                            const Text(
+                              'No Favorites',
+                              style:
+                                  TextStyle(color: kPrimeColor, fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
+              ),
             ),
           ],
         ),

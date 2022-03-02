@@ -5,8 +5,6 @@ import 'package:football_app/Controlller/authcontroller.dart';
 import 'package:football_app/Controlller/chatRoomController.dart';
 import 'package:football_app/Controlller/userController.dart';
 import 'package:football_app/Utils/root.dart';
-
-import 'package:football_app/widgets/navbar.dart';
 import 'package:get/get.dart';
 
 var kWidth = Get.width;

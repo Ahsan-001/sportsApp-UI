@@ -4,7 +4,7 @@ import 'package:football_app/OldProject/item_team_info.dart';
 import 'package:football_app/OldProject/models/league.dart';
 import 'package:football_app/OldProject/models/team_info.dart';
 import 'package:football_app/Utils/constants.dart';
-import 'package:football_app/screens/background.dart';
+import 'package:football_app/OldProject/background.dart';
 
 class LeagueTeams extends StatefulWidget {
   static const ROUTE_NAME = "LeagueTeams";

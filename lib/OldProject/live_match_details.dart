@@ -3,7 +3,7 @@ import 'package:football_app/OldProject/item_live_detail.dart';
 import 'package:football_app/OldProject/models/match.dart';
 import 'package:football_app/OldProject/statistics/components/team.dart';
 import 'package:football_app/Utils/constants.dart';
-import 'package:football_app/screens/background.dart';
+import 'package:football_app/OldProject/background.dart';
 
 class LiveMatchDetails extends StatefulWidget {
   final SoccerMatch? match;

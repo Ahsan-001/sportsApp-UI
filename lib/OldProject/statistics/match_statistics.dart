@@ -5,7 +5,7 @@ import 'package:football_app/OldProject/models/statistic.dart';
 import 'package:football_app/OldProject/statistics/components/row.dart';
 import 'package:football_app/OldProject/statistics/components/team.dart';
 import 'package:football_app/Utils/constants.dart';
-import 'package:football_app/screens/background.dart';
+import 'package:football_app/OldProject/background.dart';
 
 class MatchStatistics extends StatefulWidget {
   final SoccerMatch match;

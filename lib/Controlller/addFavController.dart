@@ -38,7 +38,7 @@ import 'package:get/get.dart';
 // }
 
 class FavController extends GetxController {
-  List<ProfileDetailData> profileDetailData = ProfileDetailData.Details;
+  // List<ProfileDetailData> profileDetailData = ProfileDetailData.Details;
   Map<int, FavItem> _items = {};
 
   Map<int, FavItem> get items {

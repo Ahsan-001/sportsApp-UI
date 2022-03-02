@@ -5,7 +5,7 @@ import 'package:football_app/OldProject/models/league.dart';
 import 'package:football_app/OldProject/models/match.dart';
 import 'package:football_app/OldProject/statistics/match_statistics.dart';
 import 'package:football_app/Utils/constants.dart';
-import 'package:football_app/screens/background.dart';
+import 'package:football_app/OldProject/background.dart';
 
 class LeagueFixtures extends StatefulWidget {
   static const ROUTE_NAME = "LeagueFixtures";
