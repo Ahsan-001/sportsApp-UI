@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,8 +13,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditProfile extends StatelessWidget {
-  final authController = Get.find<AuthController>();
-  final userController = Get.find<UserController>();
+  // final authController = Get.find<AuthController>();
+  // final userController = Get.find<UserController>();
 
   EditProfile({Key? key}) : super(key: key);
 
@@ -62,7 +61,7 @@ class EditProfile extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 child: MaterialButton(
                   onPressed: () {
-                    authController.signOut();
+                    // authController.signOut();
                     Get.offAll(SignIn());
                   },
                   child: const Icon(
@@ -90,54 +89,62 @@ class EditProfile extends StatelessWidget {
                             padding:
                                 const EdgeInsets.only(top: 15.0, bottom: 0.0),
                             child: Container(
-                              height: 110.0,
-                              width: 110.0,
-                              decoration: BoxDecoration(
-                                  color: kDarkColor,
-                                  borderRadius: BorderRadius.circular(60)),
-                              padding: const EdgeInsets.all(2),
-                              child: Obx(
-                                () => ClipRRect(
-                                  borderRadius: BorderRadius.circular(60),
-                                  child: isUploading.value
-                                      ? const Center(
-                                          child: CircularProgressIndicator(),
-                                        )
-                                      : Image.network(
-                                          userController.userGetter.photoUrl!,
-                                          fit: BoxFit.cover,
-                                          loadingBuilder: (BuildContext context,
-                                              Widget child,
-                                              ImageChunkEvent?
-                                                  loadingProgress) {
-                                            if (loadingProgress == null) {
-                                              return child;
-                                            }
-                                            return Center(
-                                              child: CircularProgressIndicator(
-                                                value: loadingProgress
-                                                            .expectedTotalBytes !=
-                                                        null
-                                                    ? loadingProgress
-                                                            .cumulativeBytesLoaded /
-                                                        loadingProgress
-                                                            .expectedTotalBytes!
-                                                    : null,
-                                              ),
-                                            );
-                                          },
-                                          errorBuilder: (BuildContext context,
-                                              Object exception,
-                                              StackTrace? stackTrace) {
-                                            return SvgPicture.asset(
-                                              'assets/images/user.svg',
-                                              width: 122,
-                                            );
-                                          },
-                                        ),
-                                ),
-                              ),
-                            ),
+                                height: 110.0,
+                                width: 110.0,
+                                decoration: BoxDecoration(
+                                    color: kDarkColor,
+                                    borderRadius: BorderRadius.circular(60)),
+                                padding: const EdgeInsets.all(2),
+                                child:
+                                    //  Obx(
+                                    //   () => ClipRRect(
+                                    //     borderRadius: BorderRadius.circular(60),
+                                    //     child: isUploading.value
+                                    //         ? const Center(
+                                    //             child: CircularProgressIndicator(),
+                                    //           )
+                                    //         : Image.network(
+                                    //             userController.userGetter.photoUrl!,
+                                    //             fit: BoxFit.cover,
+                                    //             loadingBuilder: (BuildContext context,
+                                    //                 Widget child,
+                                    //                 ImageChunkEvent?
+                                    //                     loadingProgress) {
+                                    //               if (loadingProgress == null) {
+                                    //                 return child;
+                                    //               }
+                                    //               return Center(
+                                    //                 child: CircularProgressIndicator(
+                                    //                   value: loadingProgress
+                                    //                               .expectedTotalBytes !=
+                                    //                           null
+                                    //                       ? loadingProgress
+                                    //                               .cumulativeBytesLoaded /
+                                    //                           loadingProgress
+                                    //                               .expectedTotalBytes!
+                                    //                       : null,
+                                    //                 ),
+                                    //               );
+                                    //             },
+                                    //             errorBuilder: (BuildContext context,
+                                    //                 Object exception,
+                                    //                 StackTrace? stackTrace) {
+                                    //               return SvgPicture.asset(
+                                    //                 'assets/images/user.svg',
+                                    //                 width: 122,
+                                    //               );
+                                    //             },
+                                    //           ),
+                                    //   ),
+                                    // ),
+
+                                    Container(
+                                  child: Image.asset(
+                                    'assets/images/user.svg',
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                )),
                           ),
                           Positioned(
                             bottom: 0,
@@ -155,15 +162,15 @@ class EditProfile extends StatelessWidget {
                               width: 35,
                               child: Center(
                                 child: GestureDetector(
-                                  onTap: () async {
-                                    await chooseImage();
-                                    if (imageIsNull.value == false) {
-                                      isUploading.value = true;
-                                      String url = await Storage()
-                                          .imageUploadToStorage(image);
-                                      await Database().updateProfilePic(url);
-                                      isUploading.value = false;
-                                    }
+                                  onTap: () {
+                                    // await chooseImage();
+                                    // if (imageIsNull.value == false) {
+                                    //   isUploading.value = true;
+                                    //   String url = await Storage()
+                                    //       .imageUploadToStorage(image);
+                                    //   await Database().updateProfilePic(url);
+                                    //   isUploading.value = false;
+                                    // }
                                   },
                                   child: const Icon(
                                     Icons.add,
@@ -217,7 +224,7 @@ class EditProfile extends StatelessWidget {
                   text: "Log Out",
                   icon: "assets/images/Log out.svg",
                   press: () {
-                    authController.signOut();
+                    // authController.signOut();
                     Get.offAll(SignIn());
                   },
                 ),

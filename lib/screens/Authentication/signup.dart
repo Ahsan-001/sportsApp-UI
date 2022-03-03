@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:football_app/Controlller/authcontroller.dart';
+import 'package:football_app/OldProject/home/home.dart';
 import 'package:football_app/Utils/constants.dart';
 import 'package:football_app/main.dart';
 import 'package:football_app/screens/Authentication/textfield_widget.dart';
+import 'package:football_app/widgets/navbar.dart';
 import 'package:get/get.dart';
 
 class SignupView extends StatelessWidget {
   SignupView({Key? key}) : super(key: key);
-  final authController = Get.find<AuthController>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+  // final authController = Get.find<AuthController>();
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
+  // final TextEditingController nameController = TextEditingController();
 
   final isObsecure = true.obs;
   final isLoading = false.obs;
@@ -71,89 +73,95 @@ class SignupView extends StatelessWidget {
                           SizedBox(height: height * 0.075),
                           TextFieldWidget(
                             obsecure: false,
-                            controller: nameController,
+                            // controller: nameController,
                             leadingIcon: Icons.person,
                             lable: 'Enter Name',
                           ),
                           const SizedBox(height: 15),
                           TextFieldWidget(
                             obsecure: false,
-                            controller: emailController,
+                            // controller: emailController,
                             leadingIcon: Icons.mail,
                             lable: 'Enter Email',
                           ),
                           const SizedBox(height: 15),
-                          Obx(() => TextFieldWidget(
-                                controller: passwordController,
-                                leadingIcon: Icons.lock,
-                                lable: 'Enter Password',
-                                obsecure: isObsecure.value,
-                                trailing: isObsecure.value
-                                    ? IconButton(
-                                        onPressed: () {
-                                          isObsecure.value = false;
-                                        },
-                                        icon: const Icon(
-                                          Icons.password,
-                                          color: kPrimeColor,
-                                        ),
-                                      )
-                                    : IconButton(
-                                        onPressed: () {
-                                          isObsecure.value = true;
-                                        },
-                                        icon: const Icon(
-                                          Icons.remove_red_eye,
-                                          color: kPrimeColor,
-                                        ),
-                                      ),
-                              )),
-                          const SizedBox(height: 10),
-                          Obx(() => Container(
-                                margin:
-                                    const EdgeInsets.symmetric(vertical: 10),
-                                width: double.infinity,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(29),
-                                  child: MaterialButton(
-                                    height: 60.0,
-                                    color: kPrimeColor,
-                                    onPressed: () async {
-                                      isLoading.value = true;
-                                      if (GetUtils.isEmail(
-                                              emailController.text) &&
-                                          nameController.text != '' &&
-                                          passwordController.text != '') {
-                                        authController.createUser(
-                                            nameController.text,
-                                            emailController.text,
-                                            passwordController.text);
-                                        nameController.clear();
-                                        emailController.clear();
-                                        passwordController.clear();
-                                      } else {
-                                        Get.snackbar("Input Error",
-                                            'Enter Valid Information',
-                                            backgroundColor: Colors.white60);
-                                      }
-                                      isLoading.value = false;
+                          // Obx(() =>
+                          TextFieldWidget(
+                            // controller: passwordController,
+                            leadingIcon: Icons.lock,
+                            lable: 'Enter Password',
+                            obsecure: isObsecure.value,
+                            trailing: isObsecure.value
+                                ? IconButton(
+                                    onPressed: () {
+                                      isObsecure.value = false;
                                     },
-                                    child: isLoading.value
-                                        ? const CircularProgressIndicator(
-                                            color: kPrimeColor,
-                                          )
-                                        : const Text(
-                                            'SIGNUP',
-                                            style: TextStyle(
-                                                color: kLightColor,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                                letterSpacing: 2),
-                                          ),
+                                    icon: const Icon(
+                                      Icons.password,
+                                      color: kPrimeColor,
+                                    ),
+                                  )
+                                : IconButton(
+                                    onPressed: () {
+                                      isObsecure.value = true;
+                                    },
+                                    icon: const Icon(
+                                      Icons.remove_red_eye,
+                                      color: kPrimeColor,
+                                    ),
                                   ),
-                                ),
-                              )),
-                          const SizedBox(height: 12),
+                          ),
+                          // ),
+                          SizedBox(height: 10),
+                          // Obx(() =>
+                          Container(
+                            margin: const EdgeInsets.symmetric(vertical: 10),
+                            width: double.infinity,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(29),
+                              child: MaterialButton(
+                                height: 60.0,
+                                color: kPrimeColor,
+                                onPressed: () {
+                                  Get.to(NavBar());
+                                },
+                                // onPressed: () async {
+                                //   isLoading.value = true;
+                                //   if (GetUtils.isEmail(
+                                //           emailController.text) &&
+                                //       nameController.text != '' &&
+                                //       passwordController.text != '') {
+                                //     authController.createUser(
+                                //         nameController.text,
+                                //         emailController.text,
+                                //         passwordController.text);
+                                //     nameController.clear();
+                                //     emailController.clear();
+                                //     passwordController.clear();
+                                //   } else {
+                                //     Get.snackbar("Input Error",
+                                //         'Enter Valid Information',
+                                //         backgroundColor: Colors.white60);
+                                //   }
+                                //   isLoading.value = false;
+                                // },
+                                child: isLoading.value
+                                    ? const CircularProgressIndicator(
+                                        color: kPrimeColor,
+                                      )
+                                    : const Text(
+                                        'SIGNUP',
+                                        style: TextStyle(
+                                            color: kLightColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                            letterSpacing: 2),
+                                      ),
+                              ),
+                            ),
+                          ),
+                          // ),
+                          SizedBox(height: 12),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[

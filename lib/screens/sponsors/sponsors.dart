@@ -11,7 +11,7 @@ class SponsorsView extends StatelessWidget {
       backgroundColor: kLightColor,
       appBar: AppBar(
         backgroundColor: kPrimeColor,
-        title: Text(
+        title: const Text(
           "Sponsors",
           style: TextStyle(color: kLightColor),
         ),

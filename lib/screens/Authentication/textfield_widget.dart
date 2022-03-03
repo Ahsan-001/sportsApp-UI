@@ -5,13 +5,13 @@ class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
     Key? key,
     required this.lable,
-    required this.controller,
+    // required this.controller,
     required this.leadingIcon,
     required this.obsecure,
     this.trailing,
   }) : super(key: key);
 
-  final TextEditingController controller;
+  // final TextEditingController controller;
   final IconData leadingIcon;
   final Widget? trailing;
   final String lable;
@@ -30,7 +30,7 @@ class TextFieldWidget extends StatelessWidget {
       ),
       child: TextField(
         obscureText: obsecure,
-        controller: controller,
+        // controller: controller,
         cursorColor: kDarkColor,
         decoration: InputDecoration(
             fillColor: kLightColor,

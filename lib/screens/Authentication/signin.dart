@@ -5,14 +5,15 @@ import 'package:football_app/main.dart';
 import 'package:football_app/screens/Authentication/forgot_password.dart';
 import 'package:football_app/screens/Authentication/signup.dart';
 import 'package:football_app/screens/Authentication/textfield_widget.dart';
+import 'package:football_app/widgets/navbar.dart';
 import 'package:get/get.dart';
 
 class SignIn extends StatelessWidget {
   SignIn({Key? key}) : super(key: key);
 
-  final authController = Get.find<AuthController>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  // final authController = Get.find<AuthController>();
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
 
   final isObsecure = true.obs;
   final isLoading = false.obs;
@@ -73,13 +74,13 @@ class SignIn extends StatelessWidget {
                           SizedBox(height: height * 0.075),
                           TextFieldWidget(
                             obsecure: false,
-                            controller: emailController,
+                            // controller: emailController,
                             leadingIcon: Icons.mail,
                             lable: 'Enter Email',
                           ),
                           const SizedBox(height: 15),
                           Obx(() => TextFieldWidget(
-                                controller: passwordController,
+                                // controller: passwordController,
                                 leadingIcon: Icons.lock,
                                 lable: 'Enter Password',
                                 obsecure: isObsecure.value,
@@ -130,31 +131,36 @@ class SignIn extends StatelessWidget {
                               child: MaterialButton(
                                 height: 60.0,
                                 color: kPrimeColor,
-                                onPressed: () async {
-                                  isLoading.value = true;
-                                  if (GetUtils.isEmail(emailController.text)) {
-                                    authController.login(emailController.text,
-                                        passwordController.text);
-                                  } else {
-                                    Get.snackbar(
-                                        "Input Error", 'Enter Valid Data',
-                                        snackPosition: SnackPosition.BOTTOM,
-                                        backgroundColor: Colors.redAccent);
-                                  }
-                                  isLoading.value = false;
+                                onPressed: () {
+                                  Get.to(NavBar());
                                 },
-                                child: isLoading.value
-                                    ? const CircularProgressIndicator(
-                                        color: Colors.black,
-                                      )
-                                    : const Text(
-                                        'LOGIN',
-                                        style: TextStyle(
-                                            color: kLightColor,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                            letterSpacing: 2),
-                                      ),
+                                // onPressed: () async {
+                                //   isLoading.value = true;
+                                //   if (GetUtils.isEmail(emailController.text)) {
+                                //     authController.login(emailController.text,
+                                //         passwordController.text);
+                                //   } else {
+                                //     Get.snackbar(
+                                //         "Input Error", 'Enter Valid Data',
+                                //         snackPosition: SnackPosition.BOTTOM,
+                                //         backgroundColor: Colors.redAccent);
+                                //   }
+                                //   isLoading.value = false;
+                                // },
+                                child:
+                                    // isLoading.value
+                                    //     ? const CircularProgressIndicator(
+                                    //         color: Colors.black,
+                                    //       )
+                                    //     :
+                                    const Text(
+                                  'LOGIN',
+                                  style: TextStyle(
+                                      color: kLightColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      letterSpacing: 2),
+                                ),
                               ),
                             ),
                           ),

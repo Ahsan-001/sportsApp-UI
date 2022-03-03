@@ -94,9 +94,9 @@ class HomeScreen extends StatelessWidget {
                       SportsCard(
                         lable: "Chat",
                         ontap: () => {
-                          Get.to(
-                            ChatHome(),
-                          ),
+                          // Get.to(
+                          //   ChatHome(),
+                          // ),
                         },
                       ),
                       SportsCard(

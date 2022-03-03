@@ -85,15 +85,15 @@ class ForgotPassword extends StatelessWidget {
                         child: isLoading.value
                             ? CircularProgressIndicator()
                             : MaterialButton(
-                                onPressed: () async {
-                                  isLoading.value = true;
-                                  if (GetUtils.isEmail(email.text)) {
-                                    await Get.find<AuthController>()
-                                        .resetPassword(email.text);
-                                  } else {
-                                    Get.snackbar('Error', 'Enter valid Email.');
-                                  }
-                                  isLoading.value = false;
+                                onPressed: () {
+                                  // isLoading.value = true;
+                                  // if (GetUtils.isEmail(email.text)) {
+                                  //   await Get.find<AuthController>()
+                                  //       .resetPassword(email.text);
+                                  // } else {
+                                  //   Get.snackbar('Error', 'Enter valid Email.');
+                                  // }
+                                  // isLoading.value = false;
                                 },
                                 child: const Text(
                                   "Sent Reset Link",
